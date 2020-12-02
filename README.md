@@ -48,17 +48,25 @@ PURPOSE/SCOPE: <br/>
     6. Read Me - Team members will fill this out after each step
 Collapse
 
+<!-- Wanted to get a format down. We can change it as we see fit. - Kevin -->
+
 ## Extraction
 
-Edamam API | Beautiful Soup | Pandas | (Insert other tools....)
+---
 
-### Methods
+Edamam API | Beautiful Soup | Pandas | <!-- (Insert other tools....) -->
 
-Webscraped Healthlines "20 Delicious High Protein foods to Eat."
+### **Methods**
+
+---
+
+Webscraped Healthlines '20 Delicious High Protein foods to Eat'. [Take a look!](https://www.healthline.com/nutrition/20-delicious-high-protein-foods#TOC_TITLE_HDR_2)
 
 Using the edamam api, pulled the top 50? recipe lists for each protein.
 
-#### The Recipes
+#### **The Recipes**
+
+---
 
 Looking for the following:
 
@@ -69,13 +77,21 @@ Looking for the following:
 
 ### Coupon api
 
+---
+
 ## Transform
 
+Pandas | <!-- (Other tools if needed) -->
+
 ### Methods
+
+---
 
 Insert the info to data frame, blah blah blah.
 
 ## Load
+
+---
 
 ### Methods
 
@@ -83,10 +99,14 @@ Load the dataframes to mongodb/postgresql?
 
 ## Query time
 
+---
+
+<!-- Honestly some things that I quickly thought of. We can do other things. - Kevin -->
+
 ### Do you wanna build a deviled egg
 
 Something about finding recipes....
 
 ### Quick Snack
 
-Query about the cooking time.
+Query about the cooking time?
