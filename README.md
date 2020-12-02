@@ -66,26 +66,26 @@ Using the edamam api, pulled the top 50? recipe lists for each protein.
 
 #### **The Recipes**
 
----
-
 Looking for the following:
 
 * Recipe Name
 * Cooking Time
 * Serving Yield.
 * Recipe Url
+<!-- Any other things we may want -->
 
-### Coupon api
 
----
+### **Coupon api**
 
 ## Transform
 
+---
+
 Pandas | <!-- (Other tools if needed) -->
 
-### Methods
+### **Methods**
 
----
+
 
 Insert the info to data frame, blah blah blah.
 
@@ -93,7 +93,7 @@ Insert the info to data frame, blah blah blah.
 
 ---
 
-### Methods
+### **Methods**
 
 Load the dataframes to mongodb/postgresql?
 
@@ -103,10 +103,10 @@ Load the dataframes to mongodb/postgresql?
 
 <!-- Honestly some things that I quickly thought of. We can do other things. - Kevin -->
 
-### Do you wanna build a deviled egg
+### **Do you wanna build a deviled egg**
 
 Something about finding recipes....
 
-### Quick Snack
+### **Quick Snack**
 
 Query about the cooking time?
