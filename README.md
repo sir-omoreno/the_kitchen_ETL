@@ -62,6 +62,10 @@ Edamam API | Beautiful Soup | Pandas | <!-- (Insert other tools....) -->
 
 Webscraped Healthlines '20 Delicious High Protein foods to Eat'. [Take a look!](https://www.healthline.com/nutrition/20-delicious-high-protein-foods#TOC_TITLE_HDR_2)
 
+Sample Code:
+![Healthline Scraping](Images/Scraping_code.png)
+
+
 Using the edamam api, pulled the top 50? recipe lists for each protein.
 
 #### **The Recipes**
