@@ -36,7 +36,7 @@ PURPOSE/SCOPE: <br/>
     Edamam Recipes API
     Top 20 high protein foods from a healthline.com article
     Walmart API
-* A brief sumarry of the three ETL steps you will take to create this database
+* A brief summary of the three ETL steps you will take to create this database
     1. Webscrape the list of top 20 high protein foods from the healthline.com article
     2. Extract recipe data from the Edamam Recipe API that utilize atleast one of the top 20 high protein foods as the main ingredient
     3. Extract relevant store and coupon data from Walmart's API for the main ingredients
@@ -69,7 +69,8 @@ Webscraping Process:
   * Sample Code:
 ![Healthline Scraping](Images/Scraping_code.png)
 * Removed numbering from the two lists:
-  * Sample Code: (!!!!!!!!!!!!!!!!ADD IMAGE!!!!!!!!!!!!!)
+  * Sample Code:
+![Number Removal](Images/list_loop.png)
 * Concatenated the list to form a combined list using `ingredients = newlst+newlst2`
 * Removed unnecesary words ("all types") `ingredients=[y.replace(' (all types)', '') for y in ingredients]`
 
@@ -80,9 +81,11 @@ Using the edamam api, pulled the top 50 recipe lists for each protein.
 API Process:
 
 * Used the ingredient list to query 50 recipe lists for each list element. Used a for loop to pull the recipes and saved them in lists.
-  * Sample Code: (!!!!!!!!!!!!!!!!ADD IMAGE!!!!!!!!!!!!!)
+  * Sample Code:
+![API Query Loop](Images/API_loop.png)
 * Placed the recipe data into a pandas dataframe:
-  * Sample Code:  (!!!!!!!!!!!!!!!!ADD IMAGE!!!!!!!!!!!!!)
+  * Sample Code:
+![Queries to Dataframe](Images/dataframe_creation.png)
 
 #### **The Recipes**
 
