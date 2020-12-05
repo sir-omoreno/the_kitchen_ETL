@@ -26,22 +26,6 @@ ETL Project - Bringing people together one recipe at a time
 
 ## Project Overview
 
-PURPOSE/SCOPE: <br/>
-
-* A brief description of your final database
-    Our database will house 900+ recipes made with atleast one of the top 20 high protein ingredients listed by Healthline.com. You can find the name, yield, cooktime, main high-protein ingredient used in the recipe and the url to the recipe in the database. You can also find a coupon to the main ingredient at your local Walmart using the database.
-* Why your final database will be useful to a hypothetical organization
-    Everyone likes to try out interesting recipes that are also a good source of protein, and save money!
-* A list your data sources
-    Edamam Recipes API
-    Top 20 high protein foods from a healthline.com article
-    Walmart API
-* A brief summary of the three ETL steps you will take to create this database
-    1. Webscrape the list of top 20 high protein foods from the healthline.com article
-    2. Extract recipe data from the Edamam Recipe API that utilize atleast one of the top 20 high protein foods as the main ingredient
-    3. Extract relevant store and coupon data from Walmart's API for the main ingredients
-    4. Use Pandas to create dataframes with only the necessary data elements, and transform the dataset by cleaning and/or removing extraneous information
-    3. Map out the tables using an ERD and load the data into SQL Postgres database by using SQLAlchemy
 * A description of what each team member will be responsible for
     1. GitHub setup - Ozzie
     2. Extract Data - All (Primary contributors: Webscraping:Rachel, Edamam API: Ramyata, Kevin, Walmart API: Ozzie)
@@ -159,11 +143,16 @@ Cleaning our data:
 
 ### **Methods**
 
+* Create an erd for the tables
+
+![ERD](Images/ERD_ETL.png)
+
 * Create the tables within postgresql
 
 * Update the dataframes to ensure that they can be properly uploaded to the sql server.
 
 * Update the 
+
 ## Query time
 
 ---
