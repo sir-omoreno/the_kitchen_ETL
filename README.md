@@ -48,6 +48,7 @@ PURPOSE/SCOPE: <br/>
     4. Pandas / Data transforming - All
     5. Setting up database - All
     6. Read Me - All
+
 Collapse
 
 <!-- Wanted to get a format down. We can change it as we see fit. - Kevin -->
@@ -94,6 +95,8 @@ Looking for the following:
 * Recipe Name
 * Cooking Time
 * Serving Yield.
+* Calories
+* Main Ingredients
 * Recipe Url
 <!-- Any other things we may want -->
 
@@ -127,17 +130,27 @@ Pandas | <!-- (Other tools if needed) -->
 
 Cleaning our data:
 
-Recipes Dataframe:
+**Recipes Dataframe:**
 
 * Removed words "recipes" or "recipe" from entire dataframe:
-  * Sample code: `food_df["Recipe Name"].replace({' recipes':''},regex=True)`
+  * Sample code:
+  `food_df["Recipe Name"].replace({' recipes':''},regex=True)`
 * Split the recipe dataframe by main ingredient using the `loc` property to catch spelling/formatting errors more easily:
-  * Sample code: `greek_yo_df=food_df.loc[food_df["Main Ingredient"]=="Greek yogurt"]`
+  * Sample code:
+  `greek_yo_df=food_df.loc[food_df["Main Ingredient"]=="Greek yogurt"]`
 * Corrected spelling:
-  * Sample code: `food_df["Recipe Name"].replace("Quinoa Tabouleh", "Quinoa Tabbouleh", inplace=True)`
+  * Sample code:
+  `food_df["Recipe Name"].replace("Quinoa Tabouleh", "Quinoa Tabbouleh", inplace=True)`
   * Sample code: `food_df["Recipe Name"]=food_df["Recipe Name"].replace({'chilli':'chili'},regex=True)`
 * Removed unnecessary words:
-  * Sample code: `food_df["Recipe Name"].replace("Diane's Sugared Peanuts", "Sugared Peanuts", inplace=True)`
+  * Sample code:
+  `food_df["Recipe Name"].replace("Diane's Sugared Peanuts", "Sugared Peanuts", inplace=True)`
+
+**Store Locator:**
+
+* Reformat the address column in the original dataframe.
+
+* Remove any duplicate "store ids"
 
 
 ## Load
@@ -146,8 +159,11 @@ Recipes Dataframe:
 
 ### **Methods**
 
-Load the dataframes to mongodb/postgresql?
+* Create the tables within postgresql
 
+* Update the dataframes to ensure that they can be properly uploaded to the sql server.
+
+* Update the 
 ## Query time
 
 ---
@@ -156,8 +172,16 @@ Load the dataframes to mongodb/postgresql?
 
 ### **Do you wanna build a deviled egg**
 
-Something about finding recipes....
+Recipe name, url, main ingredient.
 
 ### **Quick Snack**
 
-Query about the cooking time?
+Query under 15 minutes
+
+### **Counting Calories**
+
+Finding meals within a specific calorie range.
+
+### **What are buying? What are ya selling?**
+
+Find the stores that have your items in your area(New Jersey.)
