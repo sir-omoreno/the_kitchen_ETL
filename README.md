@@ -36,7 +36,7 @@ PURPOSE/SCOPE: <br/>
     Edamam Recipes API
     Top 20 high protein foods from a healthline.com article
     Walmart API
-* A brief sumarry of the three ETL steps you will take to create this database
+* A brief summary of the three ETL steps you will take to create this database
     1. Webscrape the list of top 20 high protein foods from the healthline.com article
     2. Extract recipe data from the Edamam Recipe API that utilize atleast one of the top 20 high protein foods as the main ingredient
     3. Extract relevant store and coupon data from Walmart's API for the main ingredients
