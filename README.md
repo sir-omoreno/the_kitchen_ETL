@@ -29,23 +29,25 @@ ETL Project - Bringing people together one recipe at a time
 PURPOSE/SCOPE: <br/>
 
 * A brief description of your final database
-    Our database will be a Food/Recipes database with several recipes, food categories, cook times, price, among other variables
+    Our database will house 900+ recipes made with atleast one of the top 20 high protein ingredients listed by Healthline.com. You can find the name, yield, cooktime, main high-protein ingredient used in the recipe and the url to the recipe in the database. You can also find a coupon to the main ingredient at your local Walmart using the database.
 * Why your final database will be useful to a hypothetical organization
-    Everyone loves food! This is for individual consumers.
+    Everyone likes to try out interesting recipes that are also a good source of protein, and save money!
 * A list your data sources
-    Spoonacular API
-    Other Food site (i.e. Food Network, NYTimes, etc)
+    Edamam Recipes API
+    Top 20 high protein foods from a healthline.com article
+    Walmart API
 * A brief sumarry of the three ETL steps you will take to create this database
-    1. Extract data from each source
-    2. Use Pandas to create dataframes with only the necessary data elements
-    3. Create a set of collections in MongoDB and load the data into the collections
+    1. Webscrape the list of top 20 high protein foods from the healthline.com article
+    2. Extract recipe data from the Edamam Recipe API that utilize atleast one of the top 20 high protein foods as the main ingredient
+    3. Extract relevant store and coupon data from Walmart's API for the main ingredients
+    4. Use Pandas to create dataframes with only the necessary data elements, and transform the dataset by cleaning and/or removing extraneous information
+    3. Map out the tables using an ERD and load the data into SQL Postgres database by using SQLAlchemy
 * A description of what each team member will be responsible for
-    1. GitHub setup - Ozzie M
-    2. Extract Data from Source 1, 2 - All 4 team members (work on this during Thanksgiving break)
-    4. Pandas / Data transforming - Kevin Lam 
-    5. Setting up database - Ozzie / Ramyata Upmaka
-    5. Flask / HTML - Rachel Chan / Kevin Lam
-    6. Read Me - Team members will fill this out after each step
+    1. GitHub setup - Ozzie
+    2. Extract Data - All (Primary contributors: Webscraping:Rachel, Edamam API: Ramyata, Kevin, Walmart API: Ozzie)
+    4. Pandas / Data transforming - All
+    5. Setting up database - All
+    6. Read Me - All
 Collapse
 
 <!-- Wanted to get a format down. We can change it as we see fit. - Kevin -->
