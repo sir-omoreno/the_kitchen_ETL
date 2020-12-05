@@ -26,7 +26,7 @@ CREATE TABLE "Ingredients" (
     "id" serial   NOT NULL,
     "Main_Ingredient" text   NOT NULL,
     CONSTRAINT "pk_Ingredients" PRIMARY KEY (
-        "Main_Ingredient"
+        "id"
      )
 );
 
@@ -53,3 +53,6 @@ REFERENCES "Recipes" ("Main_Ingredient");
 ALTER TABLE "Store" ADD CONSTRAINT "fk_Store_Main_Ingredient" FOREIGN KEY("Main_Ingredient")
 REFERENCES "Ingredients" ("Main_Ingredient");
 
+SELECT * FROM "Recipes";
+SELECT * FROM "Ingredients";
+SELECT * FROM "Url";
