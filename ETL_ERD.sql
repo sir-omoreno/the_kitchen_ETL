@@ -1,6 +1,5 @@
-﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
-
+-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- This is our recipes database. Allows user to look for recipes and find whether a local Walmart in the NJ area carries the main ingredient. 
 
 CREATE TABLE "Recipes" (
     "id" int   NOT NULL,
