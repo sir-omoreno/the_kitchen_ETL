@@ -97,8 +97,25 @@ Looking for the following:
 * Recipe Url
 <!-- Any other things we may want -->
 
+### **Store Locator**
 
-### **Coupon api**
+To find the stores, we have two seperate steps. The first is finding the stores within New Jersey, and the second is to find whether the stores have the items we need.
+
+Through an api we searched for walmart stores within New Jersey.
+
+1. We first uploaded a csv that contains all of the zipcodes within the United States.
+
+2. With all of the zipcodes uploaded, we only look for the zipcodes that are in New Jersey.
+
+3. We then found the stores within a 1 mile radius of each zipcode.
+
+4. We pushed this information into a dataframe which will be cleaned.
+
+To find whether the store has the main ingredient, we will Walmart's query feature to find if the item is available.
+
+1. Using the clean dataframe, we use the store id and the main ingredients to create the url. This search will show the Walmart website and let the user know if the store has the item.
+
+2. With the url complete a new dataframe is created to have Store Name, Store ID, Store Address, Store Zipcode(Zip), Main Ingredient, and Store URL.
 
 ## Transform
 
@@ -109,6 +126,8 @@ Pandas | <!-- (Other tools if needed) -->
 ### **Methods**
 
 Cleaning our data:
+
+Recipes Dataframe:
 
 * Removed words "recipes" or "recipe" from entire dataframe:
   * Sample code: `food_df["Recipe Name"].replace({' recipes':''},regex=True)`
