@@ -64,11 +64,25 @@ Edamam API | Beautiful Soup | Pandas | <!-- (Insert other tools....) -->
 
 Webscraped Healthlines '20 Delicious High Protein foods to Eat'. [Take a look!](https://www.healthline.com/nutrition/20-delicious-high-protein-foods#TOC_TITLE_HDR_2)
 
-Sample Code:
+Webscraping Process:
+* Created for loop to scrape the 20 high protein foods. Split into two lists due to numbering removal.
+  * Sample Code:
 ![Healthline Scraping](Images/Scraping_code.png)
+* Removed numbering from the two lists:
+  * Sample Code: (!!!!!!!!!!!!!!!!ADD IMAGE!!!!!!!!!!!!!)
+* Concatenated the list to form a combined list using `ingredients = newlst+newlst2`
+* Removed unnecesary words ("all types") `ingredients=[y.replace(' (all types)', '') for y in ingredients]`
 
+Edamam API:
 
-Using the edamam api, pulled the top 50? recipe lists for each protein.
+Using the edamam api, pulled the top 50 recipe lists for each protein.
+
+API Process:
+
+* Used the ingredient list to query 50 recipe lists for each list element. Used a for loop to pull the recipes and saved them in lists.
+  * Sample Code: (!!!!!!!!!!!!!!!!ADD IMAGE!!!!!!!!!!!!!)
+* Placed the recipe data into a pandas dataframe:
+  * Sample Code:  (!!!!!!!!!!!!!!!!ADD IMAGE!!!!!!!!!!!!!)
 
 #### **The Recipes**
 
@@ -91,9 +105,18 @@ Pandas | <!-- (Other tools if needed) -->
 
 ### **Methods**
 
+Cleaning our data:
 
+* Removed words "recipes" or "recipe" from entire dataframe:
+  * Sample code: `food_df["Recipe Name"].replace({' recipes':''},regex=True)`
+* Split the recipe dataframe by main ingredient using the `loc` property to catch spelling/formatting errors more easily:
+  * Sample code: `greek_yo_df=food_df.loc[food_df["Main Ingredient"]=="Greek yogurt"]`
+* Corrected spelling:
+  * Sample code: `food_df["Recipe Name"].replace("Quinoa Tabouleh", "Quinoa Tabbouleh", inplace=True)`
+  * Sample code: `food_df["Recipe Name"]=food_df["Recipe Name"].replace({'chilli':'chili'},regex=True)`
+* Removed unnecessary words:
+  * Sample code: `food_df["Recipe Name"].replace("Diane's Sugared Peanuts", "Sugared Peanuts", inplace=True)`
 
-Insert the info to data frame, blah blah blah.
 
 ## Load
 
