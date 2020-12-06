@@ -26,28 +26,13 @@ ETL Project - Bringing people together one recipe at a time
 
 ## Project Overview
 
-PURPOSE/SCOPE: <br/>
-
-* A brief description of your final database
-    Our database will house 900+ recipes made with atleast one of the top 20 high protein ingredients listed by Healthline.com. You can find the name, yield, cooktime, main high-protein ingredient used in the recipe and the url to the recipe in the database. You can also find a coupon to the main ingredient at your local Walmart using the database.
-* Why your final database will be useful to a hypothetical organization
-    Everyone likes to try out interesting recipes that are also a good source of protein, and save money!
-* A list your data sources
-    Edamam Recipes API
-    Top 20 high protein foods from a healthline.com article
-    Walmart API
-* A brief summary of the three ETL steps you will take to create this database
-    1. Webscrape the list of top 20 high protein foods from the healthline.com article
-    2. Extract recipe data from the Edamam Recipe API that utilize atleast one of the top 20 high protein foods as the main ingredient
-    3. Extract relevant store and coupon data from Walmart's API for the main ingredients
-    4. Use Pandas to create dataframes with only the necessary data elements, and transform the dataset by cleaning and/or removing extraneous information
-    3. Map out the tables using an ERD and load the data into SQL Postgres database by using SQLAlchemy
 * A description of what each team member will be responsible for
     1. GitHub setup - Ozzie
     2. Extract Data - All (Primary contributors: Webscraping:Rachel, Edamam API: Ramyata, Kevin, Walmart API: Ozzie)
     4. Pandas / Data transforming - All
     5. Setting up database - All
     6. Read Me - All
+
 Collapse
 
 <!-- Wanted to get a format down. We can change it as we see fit. - Kevin -->
@@ -62,17 +47,17 @@ Edamam API | Beautiful Soup | Pandas | <!-- (Insert other tools....) -->
 
 ---
 
-Webscraped Healthlines '20 Delicious High Protein foods to Eat'. [Take a look!](https://www.healthline.com/nutrition/20-delicious-high-protein-foods#TOC_TITLE_HDR_2)
+Webscraped Healthline's '20 Delicious High Protein foods to Eat'. [Take a look!](https://www.healthline.com/nutrition/20-delicious-high-protein-foods#TOC_TITLE_HDR_2)
 
 Webscraping Process:
+
 * Created for loop to scrape the 20 high protein foods. Split into two lists due to numbering removal.
-  * Sample Code:
-![Healthline Scraping](Images/Scraping_code.png)
-* Removed numbering from the two lists:
-  * Sample Code:
-![Number Removal](Images/list_loop.png)
+
+* Removed numbering from the two lists.
+
 * Concatenated the list to form a combined list using `ingredients = newlst+newlst2`
-* Removed unnecesary words ("all types") `ingredients=[y.replace(' (all types)', '') for y in ingredients]`
+
+* Removed unnecessary words.
 
 Edamam API:
 
@@ -80,28 +65,35 @@ Using the edamam api, pulled the top 50 recipe lists for each protein.
 
 API Process:
 
-* Used the ingredient list to query 50 recipe lists for each list element. Used a for loop to pull the recipes and saved them in lists.
-  * Sample Code:
-![API Query Loop](Images/API_loop.png)
-* Placed the recipe data into a pandas dataframe:
-  * Sample Code:
-![Queries to Dataframe](Images/dataframe_creation.png)
+* We used the ingredient list to query 50 recipes for each list element. We used a for loop to pull the recipes and saved them in lists.
+
+  * For each recipe, we returned the label, yield, url, cook time, and calorie information.
+  
+* Then, we saved the recipe data into a pandas dataframe.
 
 #### **The Recipes**
 
 Looking for the following:
 
 * Recipe Name
+
 * Cooking Time
-* Serving Yield.
+
+* Serving Yield
+
+* Calories
+
+* Main Ingredients
+
 * Recipe Url
+
 <!-- Any other things we may want -->
 
 ### **Store Locator**
 
-To find the stores, we have two seperate steps. The first is finding the stores within New Jersey, and the second is to find whether the stores have the items we need.
+To find the stores, we have two separate steps. The first is finding the stores within New Jersey, and the second is to find whether the stores have the items we need.
 
-Through an api we searched for walmart stores within New Jersey.
+Through an api we searched for Walmart stores within New Jersey.
 
 1. We first uploaded a csv that contains all of the zipcodes within the United States.
 
@@ -127,17 +119,55 @@ Pandas | <!-- (Other tools if needed) -->
 
 Cleaning our data:
 
-Recipes Dataframe:
+**Recipes Dataframe:**
 
 * Removed words "recipes" or "recipe" from entire dataframe:
-  * Sample code: `food_df["Recipe Name"].replace({' recipes':''},regex=True)`
+
+  * Sample code:
+  
+  `food_df["Recipe Name"].replace({' recipes':''},regex=True)`
+  
 * Split the recipe dataframe by main ingredient using the `loc` property to catch spelling/formatting errors more easily:
-  * Sample code: `greek_yo_df=food_df.loc[food_df["Main Ingredient"]=="Greek yogurt"]`
+
+  * Sample code:
+  
+  `greek_yo_df=food_df.loc[food_df["Main Ingredient"]=="Greek yogurt"]`
+  
 * Corrected spelling:
-  * Sample code: `food_df["Recipe Name"].replace("Quinoa Tabouleh", "Quinoa Tabbouleh", inplace=True)`
+
+  * Sample code:
+  
+  `food_df["Recipe Name"].replace("Quinoa Tabouleh", "Quinoa Tabbouleh", inplace=True)`
+  
   * Sample code: `food_df["Recipe Name"]=food_df["Recipe Name"].replace({'chilli':'chili'},regex=True)`
+  
 * Removed unnecessary words:
-  * Sample code: `food_df["Recipe Name"].replace("Diane's Sugared Peanuts", "Sugared Peanuts", inplace=True)`
+
+  * Sample code:
+  
+  `food_df["Recipe Name"].replace("Diane's Sugared Peanuts", "Sugared Peanuts", inplace=True)`
+
+**Store Locator:**
+
+Store Locator and Main Ingredient Data Process:
+
+* Reformatted the address column in the original dataframe by extracting the location information from a dictionary.
+
+* Narrowed the dataframe down by state (NJ), although we included stores within a one mile radius. So, some in other states were included.
+
+* Removed any duplicated "store ids".
+
+* Determined the length of the dataframe with unique store ids.
+
+* Created a new column based off of the ingredient list and added the column to the store id dataframe.
+
+  * To do this, we looped through each ingredient for every unique store id entry.
+  
+* Created a new column based off of both the store id and ingredient list in order to populate the column with a unique url list. Added this column to the store id dataframe.
+
+* Exported this store locator dataframe to a csv.
+
+* ![Dataframe with URLS and Ingredients](Images/walmart_dataframe.png)
 
 
 ## Load
@@ -146,7 +176,15 @@ Recipes Dataframe:
 
 ### **Methods**
 
-Load the dataframes to mongodb/postgresql?
+* Created an erd for the tables.
+
+![ERD](Images/ERD_ETL.png)
+
+* Created the tables within postgresql.
+
+* Updated the dataframes to ensure that they can be properly uploaded to the sql server.
+
+* Update the 
 
 ## Query time
 
@@ -156,8 +194,16 @@ Load the dataframes to mongodb/postgresql?
 
 ### **Do you wanna build a deviled egg**
 
-Something about finding recipes....
+Recipe name, url, main ingredient.
 
 ### **Quick Snack**
 
-Query about the cooking time?
+Query under 15 minutes
+
+### **Counting Calories**
+
+Finding meals within a specific calorie range.
+
+### **What are buying? What are ya selling?**
+
+Find the stores that have your items in your area(New Jersey.)
