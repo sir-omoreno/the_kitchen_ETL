@@ -34,7 +34,6 @@ ETL Project - Bringing people together one recipe at a time
     5. Setting up database - All
     6. Read Me - All
 
-Collapse
 
 <!-- Wanted to get a format down. We can change it as we see fit. - Kevin -->
 
