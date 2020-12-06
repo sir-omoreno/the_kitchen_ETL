@@ -26,6 +26,7 @@ ETL Project - Bringing people together one recipe at a time
 
 ## Project Overview
 
+
 * A description of what each team member will be responsible for
     1. GitHub setup - Ozzie
     2. Extract Data - All (Primary contributors: Webscraping:Rachel, Edamam API: Ramyata, Kevin, Walmart API: Ozzie)
