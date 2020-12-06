@@ -34,7 +34,6 @@ ETL Project - Bringing people together one recipe at a time
     5. Setting up database - All
     6. Read Me - All
 
-Collapse
 
 <!-- Wanted to get a format down. We can change it as we see fit. - Kevin -->
 
@@ -179,32 +178,45 @@ Store Locator and Main Ingredient Data Process:
 
 * Created an erd for the tables.
 
-![ERD](Images/ERD_ETL.png)
+![ERD](Images/FINAL_ERD.png)
 
 * Created the tables within postgresql.
 
 * Updated the dataframes to ensure that they can be properly uploaded to the sql server.
 
-* Update the 
-
 ## Query time
 
 ---
+Below are some sample queries that we ran through our database:
 
 <!-- Honestly some things that I quickly thought of. We can do other things. - Kevin -->
 
-### **Do you wanna build a deviled egg**
+### **Location Query**
 
-Recipe name, url, main ingredient.
+Query for recipes that have main ingredients in stock at a store near you. Location: Bayonne, NJ.
 
-### **Quick Snack**
+![Bayonne](Images/Bayonne.png)
 
-Query under 15 minutes
+### **Main Ingredient Query**
 
-### **Counting Calories**
+Query finding recipe name and url where teh main ingredient is almonds.
 
-Finding meals within a specific calorie range.
+![Almonds](Images/Almonds.png)
 
-### **What are buying? What are ya selling?**
+### **Calories Query**
 
-Find the stores that have your items in your area(New Jersey.)
+Query finding recipe name and url for a range of calories: 200-500.
+
+![Calories](Images/Calories.png)
+
+### **Cook Time Query**
+
+Query finding recipes for cook times under 15 minutes.
+
+![Cook Time](Images/Cook_time.png)
+
+### **Location and Main Ingredient Query**
+
+Query finding recipes for store location (Bayonne, NJ) and main ingredient (greek yogurt).
+
+![Ingredient and Location Specific Query](Images/Specificquery.png)
