@@ -1,7 +1,7 @@
 -- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- This is our recipes database. Allows user to look for recipes and find whether a local Walmart in the NJ area carries the main ingredient. 
 
-CREATE TABLE Recipes (
+CREATE TABLE recipes (
     id int   NOT NULL,
     Main_Ingredient text   NOT NULL,
     Recipe_Name text   NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE Recipes (
      )
 );
 
-CREATE TABLE Url (
+CREATE TABLE url (
     id int   NOT NULL,
     Main_Ingredient text   NOT NULL,
     URL varchar(255)   NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE Url (
      )
 );
 
-CREATE TABLE Ingredients (
+CREATE TABLE ingredients (
     id serial   NOT NULL,
     Main_Ingredient text   NOT NULL,
     CONSTRAINT pk_Ingredients PRIMARY KEY (
@@ -30,7 +30,7 @@ CREATE TABLE Ingredients (
      )
 );
 
-CREATE TABLE Store (
+CREATE TABLE walmart (
     Store_id int   NOT NULL,
     Main_Ingredient text   NOT NULL,
     Store_name varchar(255)   NOT NULL,
@@ -44,22 +44,22 @@ CREATE TABLE Store (
      )
 );
 
-ALTER TABLE Url ADD CONSTRAINT fk_Url_Main_Ingredient FOREIGN KEY(Main_Ingredient)
-REFERENCES Ingredients (Main_Ingredient);
+ALTER TABLE url ADD CONSTRAINT fk_Url_Main_Ingredient FOREIGN KEY(Main_Ingredient)
+REFERENCES ingredients (Main_Ingredient);
 
-ALTER TABLE Ingredients ADD CONSTRAINT fk_Ingredients_Main_Ingredient FOREIGN KEY(Main_Ingredient)
-REFERENCES Recipes (Main_Ingredient);
+ALTER TABLE ingredients ADD CONSTRAINT fk_Ingredients_Main_Ingredient FOREIGN KEY(Main_Ingredient)
+REFERENCES recipes (Main_Ingredient);
 
-ALTER TABLE Store ADD CONSTRAINT fk_Store_Main_Ingredient FOREIGN KEY(Main_Ingredient)
-REFERENCES Ingredients (Main_Ingredient);
+ALTER TABLE walmart ADD CONSTRAINT fk_walmart_Main_Ingredient FOREIGN KEY(Main_Ingredient)
+REFERENCES ingredients (Main_Ingredient);
 
 -- Some examples of how to use this database
-
-SELECT * FROM Recipes;
-SELECT * FROM Ingredients;
-SELECT * FROM Url;
+SELECT * FROM recipes;
+SELECT * FROM ingredients;
+SELECT * FROM url;
+SELECT * FROM walmart;
 
 -- Look for a recipe that uses fish, follow the url to start cooking
-SELECT "Recipe_Name." FROM "Url" WHERE "Main_Ingredient" = 'Fish' 
+SELECT Recipe_Name.Recipes FROM Url WHERE Main_Ingredient = 'Fish' 
 
 
