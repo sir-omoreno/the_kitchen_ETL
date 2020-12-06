@@ -51,13 +51,9 @@ Webscraped Healthlines '20 Delicious High Protein foods to Eat'. [Take a look!](
 
 Webscraping Process:
 * Created for loop to scrape the 20 high protein foods. Split into two lists due to numbering removal.
-  * Sample Code:
-![Healthline Scraping](Images/Scraping_code.png)
-* Removed numbering from the two lists:
-  * Sample Code:
-![Number Removal](Images/list_loop.png)
+* Removed numbering from the two lists.
 * Concatenated the list to form a combined list using `ingredients = newlst+newlst2`
-* Removed unnecesary words ("all types") `ingredients=[y.replace(' (all types)', '') for y in ingredients]`
+* Removed unnecesary words.
 
 Edamam API:
 
@@ -65,12 +61,9 @@ Using the edamam api, pulled the top 50 recipe lists for each protein.
 
 API Process:
 
-* Used the ingredient list to query 50 recipe lists for each list element. Used a for loop to pull the recipes and saved them in lists.
-  * Sample Code:
-![API Query Loop](Images/API_loop.png)
-* Placed the recipe data into a pandas dataframe:
-  * Sample Code:
-![Queries to Dataframe](Images/dataframe_creation.png)
+* We used the ingredient list to query 50 recipes for each list element. We used a for loop to pull the recipes and saved them in lists.
+  * For each recipe, we returned the label, yield, url, cook time, and calorie information.
+* Then, we saved the recipe data into a pandas dataframe.
 
 #### **The Recipes**
 
@@ -132,9 +125,16 @@ Cleaning our data:
 
 **Store Locator:**
 
-* Reformat the address column in the original dataframe.
+Store Locator and Main Ingredient Data Process:
 
-* Remove any duplicate "store ids"
+* Reformatted the address column in the original dataframe by extracting the location information from a dictionary.
+* Narrowed the dataframe down by state (NJ), although we included stores within a one mile radius. So, some in other states were included.
+* Removed any duplicated "store ids".
+* Determined the length of the dataframe with unique store ids.
+* Created a new column based off of the ingredient list and added the column to the store id dataframe.
+  * To do this, we looped through each ingredient for every unique store id entry.
+* Created a new column based off of both the store id and ingredient list in order to populate the column with a unique url list. Added this column to the store id dataframe.
+* Exported this store locator dataframe to a csv.
 
 
 ## Load
