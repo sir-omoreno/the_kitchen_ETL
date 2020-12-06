@@ -135,6 +135,7 @@ Store Locator and Main Ingredient Data Process:
   * To do this, we looped through each ingredient for every unique store id entry.
 * Created a new column based off of both the store id and ingredient list in order to populate the column with a unique url list. Added this column to the store id dataframe.
 * Exported this store locator dataframe to a csv.
+* ![Dataframe with URLS and Ingredients](Images/walmart_dataframe.png)
 
 
 ## Load
