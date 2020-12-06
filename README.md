@@ -50,10 +50,14 @@ Edamam API | Beautiful Soup | Pandas | <!-- (Insert other tools....) -->
 Webscraped Healthline's '20 Delicious High Protein foods to Eat'. [Take a look!](https://www.healthline.com/nutrition/20-delicious-high-protein-foods#TOC_TITLE_HDR_2)
 
 Webscraping Process:
+
 * Created for loop to scrape the 20 high protein foods. Split into two lists due to numbering removal.
+
 * Removed numbering from the two lists.
+
 * Concatenated the list to form a combined list using `ingredients = newlst+newlst2`
-* Removed unnecesary words.
+
+* Removed unnecessary words.
 
 Edamam API:
 
@@ -62,7 +66,9 @@ Using the edamam api, pulled the top 50 recipe lists for each protein.
 API Process:
 
 * We used the ingredient list to query 50 recipes for each list element. We used a for loop to pull the recipes and saved them in lists.
+
   * For each recipe, we returned the label, yield, url, cook time, and calorie information.
+  
 * Then, we saved the recipe data into a pandas dataframe.
 
 #### **The Recipes**
@@ -70,11 +76,17 @@ API Process:
 Looking for the following:
 
 * Recipe Name
+
 * Cooking Time
-* Serving Yield.
+
+* Serving Yield
+
 * Calories
+
 * Main Ingredients
+
 * Recipe Url
+
 <!-- Any other things we may want -->
 
 ### **Store Locator**
@@ -110,17 +122,29 @@ Cleaning our data:
 **Recipes Dataframe:**
 
 * Removed words "recipes" or "recipe" from entire dataframe:
+
   * Sample code:
+  
   `food_df["Recipe Name"].replace({' recipes':''},regex=True)`
+  
 * Split the recipe dataframe by main ingredient using the `loc` property to catch spelling/formatting errors more easily:
+
   * Sample code:
+  
   `greek_yo_df=food_df.loc[food_df["Main Ingredient"]=="Greek yogurt"]`
+  
 * Corrected spelling:
+
   * Sample code:
+  
   `food_df["Recipe Name"].replace("Quinoa Tabouleh", "Quinoa Tabbouleh", inplace=True)`
+  
   * Sample code: `food_df["Recipe Name"]=food_df["Recipe Name"].replace({'chilli':'chili'},regex=True)`
+  
 * Removed unnecessary words:
+
   * Sample code:
+  
   `food_df["Recipe Name"].replace("Diane's Sugared Peanuts", "Sugared Peanuts", inplace=True)`
 
 **Store Locator:**
@@ -128,13 +152,21 @@ Cleaning our data:
 Store Locator and Main Ingredient Data Process:
 
 * Reformatted the address column in the original dataframe by extracting the location information from a dictionary.
+
 * Narrowed the dataframe down by state (NJ), although we included stores within a one mile radius. So, some in other states were included.
+
 * Removed any duplicated "store ids".
+
 * Determined the length of the dataframe with unique store ids.
+
 * Created a new column based off of the ingredient list and added the column to the store id dataframe.
+
   * To do this, we looped through each ingredient for every unique store id entry.
+  
 * Created a new column based off of both the store id and ingredient list in order to populate the column with a unique url list. Added this column to the store id dataframe.
+
 * Exported this store locator dataframe to a csv.
+
 * ![Dataframe with URLS and Ingredients](Images/walmart_dataframe.png)
 
 
@@ -144,13 +176,13 @@ Store Locator and Main Ingredient Data Process:
 
 ### **Methods**
 
-* Create an erd for the tables
+* Created an erd for the tables.
 
 ![ERD](Images/ERD_ETL.png)
 
-* Create the tables within postgresql
+* Created the tables within postgresql.
 
-* Update the dataframes to ensure that they can be properly uploaded to the sql server.
+* Updated the dataframes to ensure that they can be properly uploaded to the sql server.
 
 * Update the 
 
