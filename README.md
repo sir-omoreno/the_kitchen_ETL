@@ -47,7 +47,7 @@ Edamam API | Beautiful Soup | Pandas | <!-- (Insert other tools....) -->
 
 ---
 
-Webscraped Healthlines '20 Delicious High Protein foods to Eat'. [Take a look!](https://www.healthline.com/nutrition/20-delicious-high-protein-foods#TOC_TITLE_HDR_2)
+Webscraped Healthline's '20 Delicious High Protein foods to Eat'. [Take a look!](https://www.healthline.com/nutrition/20-delicious-high-protein-foods#TOC_TITLE_HDR_2)
 
 Webscraping Process:
 * Created for loop to scrape the 20 high protein foods. Split into two lists due to numbering removal.
@@ -79,9 +79,9 @@ Looking for the following:
 
 ### **Store Locator**
 
-To find the stores, we have two seperate steps. The first is finding the stores within New Jersey, and the second is to find whether the stores have the items we need.
+To find the stores, we have two separate steps. The first is finding the stores within New Jersey, and the second is to find whether the stores have the items we need.
 
-Through an api we searched for walmart stores within New Jersey.
+Through an api we searched for Walmart stores within New Jersey.
 
 1. We first uploaded a csv that contains all of the zipcodes within the United States.
 
