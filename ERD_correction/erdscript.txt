@@ -1,0 +1,25 @@
+Recipes
+---
+"id" int PK
+"Main_Ingredient" text FK  >- Protein_List.Main_Ingredient
+"Recipe_Name" text
+"Cook_time" int
+"Yield" int
+"Calories" float
+"URL" varchar(255)
+
+Store
+---
+"Store_id" int
+"Main_Ingredient" text FK >- Protein_List.Main_Ingredient
+"Store_name" varchar(255)
+"Store_url" varchar(255) PK
+"Store_address" varchar(255)
+"Store_zipcode" varchar(255)
+"Store_city" varchar(255)
+"Store_state" varchar(255)
+
+Protein_List
+---
+"Main_Ingredient" text PK
+
