@@ -8,14 +8,14 @@ Recipes
 "Calories" float
 "URL" varchar(255)
 
-Walmart_Stores
+Store
 ---
-"Store_id" int
-"Store_name" varchar(255)
-"Store_address" varchar(255)
-"Store_zipcode" int
-"Story_city" varchar(255)
-"Store_state" varchar(255)
+"Store_Id" int PK
+"Store_Name" varchar(255)
+"Store_Address" varchar(255)
+"Store_Zipcode" int
+"Story_City" varchar(255)
+"Store_State" varchar(255)
 
 Protein_List
 ---
