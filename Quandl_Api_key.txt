@@ -1,0 +1,5 @@
+Quandl
+
+username: ramyata.upmaka@gmail.com
+pwd:apikey20
+API KEY: GcefWQerkjzmxXN_bHXX
